@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NUTELLA — Live Band & Music Therapy</title>
+<meta name="description" content="Nutella is a soulful live band led by singer Kia. We play pubs and events, and we use music as therapy to lift people out of sadness and into joy. Ready to perform anywhere." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --hot:#ff2e63;
+    --grape:#7a18d6;
+    --amber:#ffb800;
+    --cyan:#00e5ff;
+    --ink:#0d0418;
+    --cream:#fff7ef;
+    --glass:rgba(255,255,255,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--ink);
+    color:var(--cream);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Anton',sans-serif;letter-spacing:.02em;text-transform:uppercase;line-height:.95}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .grad-text{
+    background:linear-gradient(90deg,var(--amber),var(--hot),var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+    backdrop-filter:blur(14px);
+    background:rgba(13,4,24,.45);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .logo{font-family:'Anton';font-size:28px;letter-spacing:.04em}
+  .logo span{color:var(--hot)}
+  .navlinks{display:flex;gap:26px;font-weight:500;font-size:15px}
+  .navlinks a{opacity:.85;transition:.2s}
+  .navlinks a:hover{opacity:1;color:var(--amber)}
+  .nav-cta{background:var(--hot);padding:10px 18px;border-radius:40px;font-weight:600;font-size:14px;transition:.2s}
+  .nav-cta:hover{background:var(--amber);color:var(--ink)}
+  @media(max-width:760px){.navlinks{display:none}}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    background:
+      radial-gradient(circle at 18% 22%,rgba(122,24,214,.55),transparent 45%),
+      radial-gradient(circle at 82% 28%,rgba(255,46,99,.55),transparent 45%),
+      radial-gradient(circle at 50% 92%,rgba(0,229,255,.35),transparent 48%),
+      linear-gradient(160deg,#170526,#0d0418 60%);
+    overflow:hidden;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
+  .blob.a{width:420px;height:420px;background:var(--grape);top:-80px;left:-60px}
+  .blob.b{width:380px;height:380px;background:var(--hot);bottom:-100px;right:-40px;animation-delay:-5s}
+  .blob.c{width:300px;height:300px;background:var(--cyan);top:40%;left:55%;animation-delay:-9s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.12)}}
+  .hero-inner{position:relative;z-index:2;padding-top:90px}
+  .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.25);padding:7px 16px;border-radius:40px;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:26px;background:var(--glass)}
+  .hero h1{font-size:clamp(64px,13vw,170px)}
+  .hero .sub{font-size:clamp(17px,2.4vw,23px);max-width:640px;margin:24px 0 36px;font-weight:300;opacity:.92;line-height:1.55}
+  .hero .sub b{font-weight:600;color:var(--amber)}
+  .btns{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{padding:15px 30px;border-radius:46px;font-weight:600;font-size:16px;transition:.25s;display:inline-block}
+  .btn-primary{background:linear-gradient(90deg,var(--hot),var(--amber));color:#fff;box-shadow:0 12px 40px rgba(255,46,99,.4)}
+  .btn-primary:hover{transform:translateY(-3px)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .marquee{position:absolute;bottom:0;left:0;right:0;z-index:2;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25);padding:14px 0}
+  .marquee .track{display:inline-block;white-space:nowrap;font-family:'Anton';font-size:22px;letter-spacing:.1em;animation:scroll 22s linear infinite}
+  .marquee .track span{margin:0 28px;opacity:.75}
+  .marquee .track span b{color:var(--hot)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* SECTION SHELL */
+  section{position:relative}
+  .pad{padding:110px 0}
+  .label{font-size:14px;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:14px}
+  .sec-title{font-size:clamp(38px,6vw,68px)}
+
+  /* ABOUT */
+  #about{background:linear-gradient(180deg,#0d0418,#15082a)}
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  .about-grid p{font-size:17px;line-height:1.75;opacity:.9;margin-top:18px;font-weight:300}
+  .about-card{background:var(--glass);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:38px;backdrop-filter:blur(8px)}
+  .stat-row{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
+  .stat b{font-family:'Anton';font-size:42px;display:block;color:var(--amber)}
+  .stat small{opacity:.7;font-size:13px;letter-spacing:.05em}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+
+  /* MISSION / THERAPY */
+  #mission{background:
+     radial-gradient(circle at 80% 10%,rgba(0,229,255,.18),transparent 50%),
+     linear-gradient(180deg,#15082a,#0d0418)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .card{background:var(--glass);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:34px;transition:.3s}
+  .card:hover{transform:translateY(-8px);border-color:var(--hot)}
+  .card .ico{font-size:38px;margin-bottom:18px}
+  .card h3{font-size:22px;margin-bottom:12px;font-family:'Poppins';font-weight:700;text-transform:none}
+  .card p{opacity:.85;font-weight:300;line-height:1.6;font-size:15px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+
+  /* BAND */
+  #band{background:linear-gradient(180deg,#0d0418,#1a0730)}
+  .members{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+  .member{position:relative;border-radius:24px;overflow:hidden;min-height:340px;display:flex;align-items:flex-end;padding:26px;color:#fff}
+  .member::before{content:"";position:absolute;inset:0;z-index:0;transition:.4s}
+  .member:hover::before{transform:scale(1.08)}
+  .m1::before{background:linear-gradient(160deg,#ff2e63,#7a18d6)}
+  .m2::before{background:linear-gradient(160deg,#7a18d6,#00e5ff)}
+  .m3::before{background:linear-gradient(160deg,#ffb800,#ff2e63)}
+  .member .info{position:relative;z-index:2}
+  .member .role{font-size:13px;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+  .member h3{font-size:34px;margin-top:6px}
+  .member p{font-size:14px;opacity:.92;margin-top:8px;font-weight:300;max-width:240px}
+  .member .badge{position:absolute;top:20px;right:20px;z-index:2;background:rgba(0,0,0,.35);padding:6px 12px;border-radius:30px;font-size:12px;letter-spacing:.1em}
+  @media(max-width:820px){.members{grid-template-columns:1fr}}
+
+  /* GIGS */
+  #gigs{background:linear-gradient(180deg,#1a0730,#0d0418)}
+  .gig{display:flex;align-items:center;gap:24px;padding:22px 26px;border:1px solid rgba(255,255,255,.12);border-radius:18px;margin-top:16px;background:var(--glass);transition:.25s;flex-wrap:wrap}
+  .gig:hover{border-color:var(--amber);transform:translateX(6px)}
+  .gig .date{font-family:'Anton';font-size:30px;color:var(--amber);min-width:120px}
+  .gig .where{flex:1;min-width:200px}
+  .gig .where b{font-size:18px}
+  .gig .where small{display:block;opacity:.7;margin-top:3px}
+  .gig .tag{background:var(--hot);padding:7px 16px;border-radius:30px;font-size:13px;font-weight:600}
+  .gig .tag.open{background:transparent;border:1px solid var(--cyan);color:var(--cyan)}
+
+  /* CONTACT */
+  #contact{background:
+     radial-gradient(circle at 15% 20%,rgba(255,46,99,.25),transparent 50%),
+     radial-gradient(circle at 85% 80%,rgba(122,24,214,.3),transparent 50%),
+     #0d0418}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .contact-grid .lead{font-size:18px;line-height:1.7;opacity:.9;font-weight:300;margin-top:18px}
+  .contact-info{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+  .contact-info div{display:flex;align-items:center;gap:12px;font-size:15px}
+  .contact-info span{font-size:20px}
+  form{background:var(--glass);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:34px;backdrop-filter:blur(10px)}
+  .field{margin-bottom:18px}
+  label{display:block;font-size:13px;font-weight:600;letter-spacing:.05em;margin-bottom:8px;opacity:.9}
+  input,textarea,select{
+    width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);color:var(--cream);font-family:inherit;font-size:15px;transition:.2s;
+  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--hot);background:rgba(255,255,255,.1)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  button[type=submit]{
+    width:100%;margin-top:8px;padding:16px;border:none;border-radius:46px;cursor:pointer;
+    background:linear-gradient(90deg,var(--hot),var(--amber));color:#fff;font-weight:700;font-size:16px;font-family:inherit;transition:.25s;
+  }
+  button[type=submit]:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,46,99,.4)}
+  .form-note{font-size:12px;opacity:.6;margin-top:14px;text-align:center}
+  #formStatus{margin-top:16px;text-align:center;font-weight:600;display:none}
+  #formStatus.ok{display:block;color:var(--cyan)}
+  #formStatus.err{display:block;color:var(--hot)}
+  @media(max-width:820px){.contact-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+
+  footer{background:#08020f;padding:40px 0;text-align:center;font-size:14px;opacity:.7}
+  footer .logo{font-size:24px;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">NUT<span>ELLA</span></div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#mission">Mission</a>
+    <a href="#band">The Band</a>
+    <a href="#gigs">Shows</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Book Us</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Live Band · Music Therapy · Good Vibes</span>
+    <h1 class="grad-text">NUTELLA</h1>
+    <p class="sub">Soulful, sweet and electric — fronted by singer <b>Kia</b>. We turn pubs, events and ordinary nights into something that lifts you. And we believe music can do more than entertain: it can <b>heal</b>.</p>
+    <div class="btns">
+      <a href="#contact" class="btn btn-primary">Book a Performance</a>
+      <a href="#mission" class="btn btn-ghost">Our Mission</a>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="track">
+      <span>NUTELLA <b>✦</b></span><span>SPREADING MUSIC <b>✦</b></span><span>MUSIC AS THERAPY <b>✦</b></span><span>READY TO PERFORM ANYWHERE <b>✦</b></span><span>FRONTED BY KIA <b>✦</b></span>
+      <span>NUTELLA <b>✦</b></span><span>SPREADING MUSIC <b>✦</b></span><span>MUSIC AS THERAPY <b>✦</b></span><span>READY TO PERFORM ANYWHERE <b>✦</b></span><span>FRONTED BY KIA <b>✦</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="pad">
+  <div class="wrap about-grid">
+    <div>
+      <div class="label">Who We Are</div>
+      <h2 class="sec-title grad-text">Sweet sound,<br/>serious soul.</h2>
+      <p>Nutella is a cool, classy live band built around the voice of <b style="color:var(--amber)">Kia</b> — a singer who can hush a room or set it on fire. Backed by two guitarists and a groove that refuses to sit still, we bring warmth to every stage we step on.</p>
+      <p>From candle-lit pubs to packed events, our whole reason for being is simple: <b style="color:var(--amber)">spread the love of music to as many people as possible</b> — and remind everyone that a great song is something we all share.</p>
+    </div>
+    <div class="about-card">
+      <div class="label">The Nutella Promise</div>
+      <h3 style="font-size:28px;margin-bottom:8px">We play anywhere there's a heartbeat.</h3>
+      <p style="opacity:.85;font-weight:300;line-height:1.7">Pubs, private parties, corporate nights, weddings, open-air events — if you've got a crowd, we've got the set. We're <b style="color:var(--cyan)">ready to perform wherever you want us.</b></p>
+      <div class="stat-row">
+        <div class="stat"><b>100%</b><small>LIVE ENERGY</small></div>
+        <div class="stat"><b>3+</b><small>HOURS PER SET</small></div>
+        <div class="stat"><b>∞</b><small>GOOD VIBES</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission" class="pad">
+  <div class="wrap">
+    <div class="label">Why We Do This</div>
+    <h2 class="sec-title">More than a show — <span class="grad-text">a kind of healing.</span></h2>
+    <p style="max-width:680px;margin-top:16px;font-size:17px;opacity:.9;font-weight:300;line-height:1.7">Our mission goes beyond a good night out. We're building Nutella into a force for <b style="color:var(--amber)">music therapy</b> — using sound to help people climb out of sadness and depression, and walk away lighter, brighter and more cheerful.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🎶</div>
+        <h3>Spread the Music</h3>
+        <p>We bring live music to people who might never set foot in a concert hall — pubs, streets, community events. Music belongs to everyone.</p>
+      </div>
+      <div class="card">
+        <div class="ico">💛</div>
+        <h3>Music as Therapy</h3>
+        <p>A formal step we're working toward: sessions and shows designed to ease anxiety, lift low moods, and help people feel something good again.</p>
+      </div>
+      <div class="card">
+        <div class="ico">✨</div>
+        <h3>Leave People Cheerful</h3>
+        <p>Every set has one goal — that you leave happier than you came. We want to help people become better, lighter versions of themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section id="band" class="pad">
+  <div class="wrap">
+    <div class="label">Meet The Band</div>
+    <h2 class="sec-title grad-text">The faces behind the sound.</h2>
+    <div class="members">
+      <div class="member m1">
+        <span class="badge">FRONTWOMAN</span>
+        <div class="info">
+          <div class="role">Lead Vocals</div>
+          <h3>Kia</h3>
+          <p>The voice and heart of Nutella. Powerful, tender, magnetic — Kia leads every song and every room.</p>
+        </div>
+      </div>
+      <div class="member m2">
+        <span class="badge">LEAD GUITAR</span>
+        <div class="info">
+          <div class="role">Lead Guitar</div>
+          <h3>Aaro</h3>
+          <p>Melodies, solos and shimmer — the lead guitar that gives Nutella its bright, electric edge.</p>
+        </div>
+      </div>
+      <div class="member m3">
+        <span class="badge">GUITAR & VOCALS</span>
+        <div class="info">
+          <div class="role">Guitar & Vocals</div>
+          <h3>Stephin</h3>
+          <p>Rhythm, harmonies and heart — Stephin holds the groove and lifts every chorus with backing vocals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIGS -->
+<section id="gigs" class="pad">
+  <div class="wrap">
+    <div class="label">On Stage</div>
+    <h2 class="sec-title">Where to <span class="grad-text">catch us live.</span></h2>
+    <p style="max-width:620px;margin-top:14px;opacity:.85;font-weight:300;font-size:16px">We're a regular at pubs and events — and always open to the next one. Here's a taste of where Nutella lives.</p>
+    <div style="margin-top:30px">
+      <div class="gig">
+        <div class="date">FRI</div>
+        <div class="where"><b>Live at The Local Pub</b><small>Acoustic & electric set · 9 PM till late</small></div>
+        <div class="tag">Regular Show</div>
+      </div>
+      <div class="gig">
+        <div class="date">SAT</div>
+        <div class="where"><b>City Events & Festivals</b><small>Open-air stages · full band energy</small></div>
+        <div class="tag">Featured</div>
+      </div>
+      <div class="gig">
+        <div class="date">ANY</div>
+        <div class="where"><b>Your Event Here</b><small>Weddings · parties · corporate nights · therapy sessions</small></div>
+        <a href="#contact" class="tag open">Book Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="pad">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="label">Get In Touch</div>
+      <h2 class="sec-title grad-text">Let's make some noise.</h2>
+      <p class="lead">Booking a pub night, an event, or curious about a music-therapy session? Fill in the form and the team gets your message straight away. We're <b style="color:var(--amber)">ready to perform wherever you want.</b></p>
+      <div class="contact-info">
+        <div><span>📍</span> Available to travel — we come to you</div>
+        <div><span>🎤</span> Pubs · Events · Private · Therapy sessions</div>
+        <div><span>⚡</span> Quick replies — usually within a day</div>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <input type="hidden" name="_subject" value="🎵 New Nutella Booking / Message from the website" />
+      <input type="hidden" name="_template" value="box" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" />
+
+      <div class="row">
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="+91 ..." />
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@email.com" required />
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>What's the occasion?</label>
+          <select name="occasion">
+            <option>Pub / Bar night</option>
+            <option>Private party</option>
+            <option>Corporate / Event</option>
+            <option>Wedding</option>
+            <option>Music therapy session</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Preferred date</label>
+          <input type="text" name="date" placeholder="e.g. 20 July, evening" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Message</label>
+        <textarea name="message" rows="4" placeholder="Tell us about your event, venue, crowd size..." required></textarea>
+      </div>
+      <button type="submit">Send to Nutella →</button>
+      <div id="formStatus"></div>
+      <p class="form-note">Your details go directly to the band's inbox. No spam, ever.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">NUT<span style="color:var(--hot)">ELLA</span></div>
+    <p>Spreading music. Healing through sound. Ready to perform anywhere.</p>
+    <p style="margin-top:8px;opacity:.6">© 2026 Nutella · Fronted by Kia</p>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className=''; status.textContent='Sending...'; status.style.display='block';
+    const data = new FormData(form);
+    try{
+      const res = await fetch('https://formsubmit.co/ajax/abhishekmudaliarbelgaum@gmail.com', {
+        method:'POST',
+        headers:{'Accept':'application/json'},
+        body:data
+      });
+      const json = await res.json();
+      if(json.success === true || json.success === 'true'){
+        status.className='ok';
+        status.textContent='🎉 Got it! The band will be in touch soon.';
+        form.reset();
+      } else {
+        status.className='err';
+        status.textContent='Something went wrong: '+(json.message||'please try again');
+      }
+    }catch(err){
+      status.className='err';
+      status.textContent='Network error — please try again.';
+    }
+  });
+</script>
+</body>
+</html>
