@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NUTELLA — Live Band & Music Therapy</title>
-<meta name="description" content="Nutella is a soulful live band led by singer Kia. We play pubs and events, and we use music as therapy to lift people out of sadness and into joy. Ready to perform anywhere." />
+<meta name="description" content="Nutella is a soulful live band led by singer Kiya. We play pubs and events, and we use music as therapy to lift people out of sadness and into joy. Ready to perform anywhere." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -62,6 +62,9 @@
       linear-gradient(160deg,#170526,#0d0418 60%);
     overflow:hidden;
   }
+  .hero-photo{position:absolute;inset:0;z-index:1;background:url('hero.jpg') no-repeat right 8% center;background-size:cover;opacity:.5;}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0418 8%,rgba(13,4,24,.6) 42%,rgba(13,4,24,.15) 100%),linear-gradient(0deg,#0d0418,transparent 30%);}
+  @media(max-width:760px){.hero-photo{opacity:.28;background-position:right center}}
   .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:float 14s ease-in-out infinite}
   .blob.a{width:420px;height:420px;background:var(--grape);top:-80px;left:-60px}
   .blob.b{width:380px;height:380px;background:var(--hot);bottom:-100px;right:-40px;animation-delay:-5s}
@@ -113,14 +116,18 @@
   @media(max-width:820px){.cards{grid-template-columns:1fr}}
 
   /* BAND */
-  #band{background:linear-gradient(180deg,#0d0418,#1a0730)}
+  #band{position:relative;background:linear-gradient(180deg,#0d0418,#1a0730);overflow:hidden}
+  #band::before{content:"";position:absolute;inset:0;z-index:0;background:url('group.jpg') no-repeat center 20%;background-size:cover;opacity:.16}
+  #band::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#0d0418 0%,rgba(13,4,24,.55) 40%,#1a0730 100%)}
+  #band .wrap{position:relative;z-index:1}
   .members{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
   .member{position:relative;border-radius:24px;overflow:hidden;min-height:340px;display:flex;align-items:flex-end;padding:26px;color:#fff}
   .member::before{content:"";position:absolute;inset:0;z-index:0;transition:.4s}
   .member:hover::before{transform:scale(1.08)}
-  .m1::before{background:linear-gradient(160deg,#ff2e63,#7a18d6)}
-  .m2::before{background:linear-gradient(160deg,#7a18d6,#00e5ff)}
+  .m1::before{background:url('hero.jpg') center 12%/cover}
+  .m2::before{background:url('aaro.jpg') center center/cover}
   .m3::before{background:linear-gradient(160deg,#ffb800,#ff2e63)}
+  .m1::after,.m2::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,2,15,.94),rgba(8,2,15,.1) 65%);transition:.4s}
   .member .info{position:relative;z-index:2}
   .member .role{font-size:13px;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
   .member h3{font-size:34px;margin-top:6px}
@@ -189,11 +196,12 @@
 
 <!-- HERO -->
 <header class="hero">
+  <div class="hero-photo"></div>
   <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Live Band · Music Therapy · Good Vibes</span>
     <h1 class="grad-text">NUTELLA</h1>
-    <p class="sub">Soulful, sweet and electric — fronted by singer <b>Kia</b>. We turn pubs, events and ordinary nights into something that lifts you. And we believe music can do more than entertain: it can <b>heal</b>.</p>
+    <p class="sub">Soulful, sweet and electric — fronted by singer <b>Kiya</b>. We turn pubs, events and ordinary nights into something that lifts you. And we believe music can do more than entertain: it can <b>heal</b>.</p>
     <div class="btns">
       <a href="#contact" class="btn btn-primary">Book a Performance</a>
       <a href="#mission" class="btn btn-ghost">Our Mission</a>
@@ -213,7 +221,7 @@
     <div>
       <div class="label">Who We Are</div>
       <h2 class="sec-title grad-text">Sweet sound,<br/>serious soul.</h2>
-      <p>Nutella is a cool, classy live band built around the voice of <b style="color:var(--amber)">Kia</b> — a singer who can hush a room or set it on fire. Backed by two guitarists and a groove that refuses to sit still, we bring warmth to every stage we step on.</p>
+      <p>Nutella is a cool, classy live band built around the voice of <b style="color:var(--amber)">Kiya</b> — a singer who can hush a room or set it on fire. Backed by two guitarists and a groove that refuses to sit still, we bring warmth to every stage we step on.</p>
       <p>From candle-lit pubs to packed events, our whole reason for being is simple: <b style="color:var(--amber)">spread the love of music to as many people as possible</b> — and remind everyone that a great song is something we all share.</p>
     </div>
     <div class="about-card">
@@ -265,8 +273,8 @@
         <span class="badge">FRONTWOMAN</span>
         <div class="info">
           <div class="role">Lead Vocals</div>
-          <h3>Kia</h3>
-          <p>The voice and heart of Nutella. Powerful, tender, magnetic — Kia leads every song and every room.</p>
+          <h3>Kiya</h3>
+          <p>The voice and heart of Nutella. Powerful, tender, magnetic — Kiya leads every song and every room.</p>
         </div>
       </div>
       <div class="member m2">
@@ -381,7 +389,7 @@
   <div class="wrap">
     <div class="logo">NUT<span style="color:var(--hot)">ELLA</span></div>
     <p>Spreading music. Healing through sound. Ready to perform anywhere.</p>
-    <p style="margin-top:8px;opacity:.6">© 2026 Nutella · Fronted by Kia</p>
+    <p style="margin-top:8px;opacity:.6">© 2026 Nutella · Fronted by Kiya</p>
   </div>
 </footer>
 
@@ -390,28 +398,4 @@
   const status = document.getElementById('formStatus');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    status.className=''; status.textContent='Sending...'; status.style.display='block';
-    const data = new FormData(form);
-    try{
-      const res = await fetch('https://formsubmit.co/ajax/abhishekmudaliarbelgaum@gmail.com', {
-        method:'POST',
-        headers:{'Accept':'application/json'},
-        body:data
-      });
-      const json = await res.json();
-      if(json.success === true || json.success === 'true'){
-        status.className='ok';
-        status.textContent='🎉 Got it! The band will be in touch soon.';
-        form.reset();
-      } else {
-        status.className='err';
-        status.textContent='Something went wrong: '+(json.message||'please try again');
-      }
-    }catch(err){
-      status.className='err';
-      status.textContent='Network error — please try again.';
-    }
-  });
-</script>
-</body>
-</html>
+    status
